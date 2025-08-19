@@ -1,4 +1,4 @@
--- Cleaning online retail data, handling NULLs, negative values, and duplicates.
+-- Cleaning online retail data, handling NULLs, negative values, and duplicates
 
 
 -- Create a staging table to preserve raw data
