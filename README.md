@@ -14,3 +14,16 @@ To deal with duplicate records, I used the ROW_NUMBER() function. I grouped the 
 
 ### Final Dataset 
 Once I completed all the cleaning steps, I created a new table called retail. This table includes only rows where CustomerID is not NULL, all quantities and prices are positive, and all duplicate records have been removed. The dataset is now clean and ready for analysis. how to make it ingitbub that
+
+## Cohort Analysis
+
+### Creating Cohort View
+```
+CREATE TABLE cohort AS
+SELECT
+    CustomerID,
+    MIN(DATE(InvoiceDate)) AS FirstPurchaseDate,
+    CAST(DATE_FORMAT(MIN(InvoiceDate), '%Y-%m-01') AS DATE) AS Cohort_Date
+FROM retail
+GROUP BY CustomerID;
+```
