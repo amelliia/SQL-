@@ -18,5 +18,6 @@ To keep the dataset consistent, I only kept rows with positive values for both Q
 To deal with duplicate records, I used the ROW_NUMBER() function. I grouped the data by invoice number, stock code, description, quantity, price, customer ID, and country.
 Each row in a group was then given a sequence number based on the invoice date. I kept only the first entry from each group and removed the rest, which ensured that only unique transactions remained.
 
-### Once I completed all the cleaning steps, I created a new table called retail. 
+### Final Dataset
+Once I completed all the cleaning steps, I created a new table called retail. 
 This table includes only rows where CustomerID is not NULL, all quantities and prices are positive, and all duplicate records have been removed. The dataset is now clean and ready for analysis.
