@@ -76,5 +76,4 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
-
-[matrix for SQL-1 Copy.pdf](https://github.com/user-attachments/files/22234751/matrix.for.SQL-1.Copy.pdf)
+<img width="1819" height="845" alt="Image" src="https://github.com/user-attachments/assets/cce5356b-535a-486b-81aa-588fe1404423" />
