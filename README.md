@@ -3,14 +3,14 @@
 ## Data Cleaning 
 <details>
   
-### Setting up a stage table
+### Setting Up a Stage Table
 I copied the raw online_retail table and made a staging table called retail_staging. This step preserved the raw data while giving me a safe working copy for cleaning the data.
 
-### Checking and removing NULL values
+### Removing NULL Values
 I checked for NULLs in each column. The only field with gaps was CustomerID, with around 135,080 missing entries.
 I excluded those rows from the dataset.
 
-### Checking for negative values
+### Checking Negative Values
 I checked Quantity and UnitPrice for negative numbers. The Quantity column contained 10,624 negative records, most likely returns or entry mistakes.
 To keep the dataset consistent, I only kept rows with positive values for both Quantity and UnitPrice. 
 
