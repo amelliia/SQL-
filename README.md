@@ -1,6 +1,7 @@
 # Retail Data Cleaning and Cohort Analysis
 
 ## Data Cleaning 
+<details>
 1. Setting up a stage table
 I copied the raw online_retail table and made a staging table called retail_staging. This step preserved the raw data while giving me a safe working copy for cleaning the data.
 
