@@ -28,7 +28,7 @@ SELECT
 FROM retail
 GROUP BY CustomerID;
 ```
-###  Creating CohortIndex and Transaction View
+###  Creating Cohort Index and Transaction View
 I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to.
 CohortIndex represents the number of months since the customer’s first purchase. Year and month columns help with time-based reporting.
 
@@ -58,7 +58,7 @@ Divides by the total cohort size to get percentage retention.
 The result is a table showing how retention changes month by month for each cohort.
 
 ```
-CREATE OR REPLACE VIEW retention AS
+CREATE VIEW retention AS
 SELECT
     t.Cohort_Date,
     t.CohortIndex,
@@ -76,3 +76,25 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 
 I made a heatmap in Power Bi to visualise retention.
 <img width="1819" height="845" alt="Image" src="https://github.com/user-attachments/assets/cce5356b-535a-486b-81aa-588fe1404423" />
+
+### Customer Churn Rate Analysis 
+
+A churn rate is a business metric that measures the percentage of customers or subscribers who stop using a product or service over a given period of time. Essentially, it tells you how quickly customers are “churning” or leaving.
+Why it matters:
+High churn rate → indicates dissatisfaction, poor product-market fit, or strong competition.
+Low churn rate → suggests customers are staying loyal and the business is healthy.
+Churn Rate = Number of customers at the start of the period / Number of customers lost during a period​ × 100
+
+```
+SELECT
+    CustomerID,
+    Cohort_Date,
+    MAX(CohortIndex) AS LastActiveMonth
+FROM transactions
+GROUP BY CustomerID, Cohort_Date
+HAVING LastActiveMonth <= 2;
+
+```
+
+
+
