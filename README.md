@@ -17,13 +17,61 @@ Once I completed all the cleaning steps, I created a new table called retail. Th
 
 ## Cohort Analysis
 
-### Creating Cohort View
+### Creating Cohort View 
+FirstPurchaseDate identifies when the customer made their first-ever transaction. Cohort_Date rounds this to the first day of the month, grouping all customers who joined in the same month together.
+This allows us to track the behavior of each cohort over time.
+
 ```
-CREATE TABLE cohort AS
+CREATE VIEW cohort AS
 SELECT
     CustomerID,
     MIN(DATE(InvoiceDate)) AS FirstPurchaseDate,
     CAST(DATE_FORMAT(MIN(InvoiceDate), '%Y-%m-01') AS DATE) AS Cohort_Date
 FROM retail
 GROUP BY CustomerID;
+```
+###  Creating CohortIndex and Transaction View
+I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to.
+CohortIndex represents the number of months since the customer’s first purchase. Year and month columns help with time-based reporting.
+
+```
+CREATE VIEW transactions AS
+SELECT
+    r.CustomerID,
+    r.InvoiceNo,
+    r.InvoiceDate,
+    r.Quantity,
+    r.UnitPrice,
+    c.Cohort_Date,
+    YEAR(r.InvoiceDate) AS InvoiceYear,
+    MONTH(r.InvoiceDate) AS InvoiceMonth,
+    YEAR(c.Cohort_Date) AS CohortYear,
+    MONTH(c.Cohort_Date) AS CohortMonth,
+    TIMESTAMPDIFF(MONTH, c.Cohort_Date, r.InvoiceDate) + 1 AS CohortIndex
+FROM retail r
+JOIN cohort c
+    ON r.CustomerID = c.CustomerID;
+```
+
+### Retention view to calculate monthly retention for each cohort
+
+Counts active customers per cohort per month.
+Divides by the total cohort size to get percentage retention.
+The result is a table showing how retention changes month by month for each cohort.
+
+```
+CREATE OR REPLACE VIEW retention AS
+SELECT
+    t.Cohort_Date,
+    t.CohortIndex,
+    COUNT(DISTINCT t.CustomerID) AS ActiveCustomers,
+    ROUND(
+        COUNT(DISTINCT t.CustomerID) / 
+        (SELECT COUNT(DISTINCT CustomerID) 
+         FROM cohort 
+         WHERE Cohort_Date = t.Cohort_Date) * 100, 1
+    ) AS RetentionRate
+FROM transactions t
+GROUP BY t.Cohort_Date, t.CohortIndex
+ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
