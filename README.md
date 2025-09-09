@@ -1,3 +1,5 @@
+# Retail Data Cleaning and Cohort Analysis
+
 ## Data Cleaning 
 
 ### Setting Up a Stage Table
