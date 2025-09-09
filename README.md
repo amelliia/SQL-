@@ -74,4 +74,5 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
+I made a heatmap in Power Bi to visualise retention.
 <img width="1819" height="845" alt="Image" src="https://github.com/user-attachments/assets/cce5356b-535a-486b-81aa-588fe1404423" />
