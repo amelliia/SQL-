@@ -75,3 +75,6 @@ FROM transactions t
 GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
+
+
+[matrix for SQL-1 Copy.pdf](https://github.com/user-attachments/files/22234751/matrix.for.SQL-1.Copy.pdf)
