@@ -1,13 +1,9 @@
 # Retail Data Cleaning and Cohort Analysis
 
 The main goal of this cohort analysis is to track customer retention and churn patterns over time.
-By grouping customers based on the month of their first purchase we can measure:  
-
-How long customers remain active after joining  
-When and how quickly customers drop off  
+By grouping customers based on the month of their first purchase we can measure how long customers remain active after joining and how quickly customers drop off.
 Do newer cohorts behave differently from older ones?  
 Does a campaign lead to stronger retention compared to previous months?  
-
 
 ## Data Cleaning 
 
