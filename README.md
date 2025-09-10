@@ -45,6 +45,7 @@ SELECT
     r.InvoiceDate,
     r.Quantity,
     r.UnitPrice,
+    (r.Quantity * r.UnitPrice) AS Revenue,
     c.Cohort_Date,
     YEAR(r.InvoiceDate) AS InvoiceYear,
     MONTH(r.InvoiceDate) AS InvoiceMonth,
@@ -82,31 +83,18 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 I made a heatmap in Power Bi to visualise retention.
 <img width="1819" height="845" alt="Image" src="https://github.com/user-attachments/assets/cce5356b-535a-486b-81aa-588fe1404423" />
 
-### Customer Churn Rate Analysis 
-
-A churn rate is a business metric that measures the percentage of customers or subscribers who stop using a product or service over a given period of time. Essentially, it tells you how quickly customers are “churning” or leaving.
-Why it matters:
-High churn rate → indicates dissatisfaction, poor product-market fit, or strong competition.
-Low churn rate → suggests customers are staying loyal and the business is healthy.
-Churn Rate = Number of customers at the start of the period / Number of customers lost during a period​ × 100
+### Cohort Revenue Growth
 
 ```
+CREATE OR REPLACE VIEW CohortRevenue AS
 SELECT
-    CustomerID,
-    Cohort_Date,
-    MAX(CohortIndex) AS LastActiveMonth
-FROM transactions
-GROUP BY CustomerID, Cohort_Date
-HAVING LastActiveMonth <= 2;
-
+    t.Cohort_Date,
+    t.CohortIndex,
+    SUM(t.Revenue) AS TotalRevenue,
+    COUNT(DISTINCT t.CustomerID) AS ActiveCustomers,
+    ROUND(SUM(t.Revenue) / COUNT(DISTINCT t.CustomerID), 2) AS RevenuePerCustomer
+FROM transactions t
+GROUP BY t.Cohort_Date, t.CohortIndex
+ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
-
-Each cohort = customers who made their very first purchase in a specific month
-Example: Cohort of Jan 2021 = all customers whose first purchase was in January 2021.
-For each customer, we look at the last month they were active (their LastActiveMonth, calculated with MAX(CohortIndex)).
-CohortIndex = 1 → their first purchase month
-CohortIndex = 2 → the month after
-If LastActiveMonth <= 2, it means the customer stopped purchasing after at most 2 months.
-We count how many customers in a cohort fit this definition → ChurnedCustomers.
-Then, we divide by the total number of customers in that cohort (the cohort size) to calculate ChurnRate (%).
 
