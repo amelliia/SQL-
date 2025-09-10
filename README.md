@@ -1,5 +1,14 @@
 # Retail Data Cleaning and Cohort Analysis
 
+The main goal of this cohort analysis is to track customer retention and churn patterns over time.
+By grouping customers based on the month of their first purchase we can measure:  
+
+How long customers remain active after joining  
+When and how quickly customers drop off  
+Do newer cohorts behave differently from older ones?  
+Does a campaign lead to stronger retention compared to previous months?  
+
+
 ## Data Cleaning 
 
 ### Setting Up a Stage Table
@@ -96,5 +105,12 @@ HAVING LastActiveMonth <= 2;
 
 ```
 
-
+Each cohort = customers who made their very first purchase in a specific month
+Example: Cohort of Jan 2021 = all customers whose first purchase was in January 2021.
+For each customer, we look at the last month they were active (their LastActiveMonth, calculated with MAX(CohortIndex)).
+CohortIndex = 1 → their first purchase month
+CohortIndex = 2 → the month after
+If LastActiveMonth <= 2, it means the customer stopped purchasing after at most 2 months.
+We count how many customers in a cohort fit this definition → ChurnedCustomers.
+Then, we divide by the total number of customers in that cohort (the cohort size) to calculate ChurnRate (%).
 
