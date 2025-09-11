@@ -81,7 +81,7 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
 I made a heatmap in Power Bi to visualise retention.
-<img width="1819" height="845" alt="Image" src="https://github.com/user-attachments/assets/cce5356b-535a-486b-81aa-588fe1404423" />
+<img width="1585" height="665" alt="Image" src="https://github.com/user-attachments/assets/3dd241fe-74c7-4fbe-ac29-71bd7c6ddc69" />
 
 ### Cohort Revenue Growth
 
@@ -97,4 +97,4 @@ FROM transactions t
 GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
-
+<img width="1585" height="685" alt="Image" src="https://github.com/user-attachments/assets/f670a18e-c140-45e0-85bc-0605d2ef75b3" />
