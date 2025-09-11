@@ -97,4 +97,18 @@ FROM transactions t
 GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
+
+```
+CREATE OR REPLACE VIEW CohortRevenueGrowth AS
+SELECT
+    cr.Cohort_Date,
+    cr.CohortIndex,
+    cr.TotalRevenue,
+    SUM(cr.TotalRevenue) 
+        OVER (PARTITION BY cr.Cohort_Date ORDER BY cr.CohortIndex) AS CumulativeRevenue
+FROM CohortRevenue cr 
+ORDER BY cr.Cohort_Date, cr.CohortIndex;
+```
+
+
 <img width="1585" height="685" alt="Image" src="https://github.com/user-attachments/assets/f670a18e-c140-45e0-85bc-0605d2ef75b3" />
