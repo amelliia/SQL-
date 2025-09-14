@@ -21,7 +21,7 @@ Once I completed all the cleaning steps, I created a new table called retail. Th
 ## Cohort Analysis
 
 ### Creating Cohort View 
-FirstPurchaseDate identifies when the customer made their first transaction. Cohort_Date rounds this to the first day of the month, grouping all customers who joined in the same month together.
+I identified each customer’s first purchase date and rounded it to the first day of that month. This created a Cohort Date, grouping customers who first purchased in the same month.
 This allows us to track the behavior of each cohort over time.
 
 ```
@@ -35,7 +35,7 @@ GROUP BY CustomerID;
 ```
 
 ###  Creating Cohort Index and Transaction View
-I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to.
+I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to. 
 CohortIndex represents the number of months since the customer’s first purchase. Year and month columns help with time-based reporting.
 
 ```
@@ -60,8 +60,7 @@ JOIN cohort c
 
 ### Retention view to calculate monthly retention for each cohort
 
-Counts active customers per cohort per month.
-Divides by the total cohort size to get percentage retention.
+This view counts how many customers were active in each cohort and month, then divides by the original cohort size.
 The result is a table showing how retention changes month by month for each cohort.
 
 ```
@@ -81,13 +80,15 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
-I made a heatmap in Power Bi to visualise retention.
+I visualized this in Power BI as a heatmap, which made it easy to spot which cohorts were retaining customers better.
+
 <img width="1585" height="665" alt="Image" src="https://github.com/user-attachments/assets/3dd241fe-74c7-4fbe-ac29-71bd7c6ddc69" />
 
 ### Cohort Revenue Growth
 
+Finally, I looked at revenue trends by cohort. This shows not only retention but also whether customers are spending more over time.
 ```
-CREATE OR REPLACE VIEW CohortRevenue AS
+CREATE VIEW CohortRevenue AS
 SELECT
     t.Cohort_Date,
     t.CohortIndex,
@@ -100,7 +101,7 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
 ```
-CREATE OR REPLACE VIEW CohortRevenueGrowth AS
+CREATE VIEW CohortRevenueGrowth AS
 SELECT
     cr.Cohort_Date,
     cr.CohortIndex,
