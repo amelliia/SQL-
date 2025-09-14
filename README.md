@@ -1,16 +1,16 @@
 # Retail Data Cleaning and Cohort Analysis
 
 The main goal of this cohort analysis is to track customer retention and churn patterns over time.
-By grouping customers based on the month of their first purchase we can measure how long customers remain active after joining and how quickly customers drop off.
-Do newer cohorts behave differently from older ones?  
-Does a campaign lead to stronger retention compared to previous months?  
+By grouping customers based on the month of their first purchase we can measure how long customers remain active after joining, how quickly customers drop off and to see if newer cohorts behave differently from older ones.
+
+The analysis was done using SQL for data preparation and Power BI for visualization.
 
 ## Data Cleaning 
 
 ### Setting Up a Stage Table
 I copied the raw online_retail table and made a staging table called retail_staging. This step preserved the raw data while giving me a safe working copy for cleaning the data. 
 ### Removing NULL Values 
-I checked for NULLs in each column. The only field with gaps was CustomerID, with around 135,080 missing entries. I excluded those rows from the dataset.
+I checked for NULLs in each column. The only column with gaps was CustomerID. About 135k rows didn’t have a customer ID so I dropped those because customer-level tracking wouldn’t be possible otherwise.
 ### Checking Negative Values 
 I checked Quantity and UnitPrice for negative numbers. The Quantity column contained 10,624 negative records, most likely returns or entry mistakes. To keep the dataset consistent, I only kept rows with positive values for both Quantity and UnitPrice. 
 ### Removing Duplicates
@@ -21,7 +21,7 @@ Once I completed all the cleaning steps, I created a new table called retail. Th
 ## Cohort Analysis
 
 ### Creating Cohort View 
-FirstPurchaseDate identifies when the customer made their first-ever transaction. Cohort_Date rounds this to the first day of the month, grouping all customers who joined in the same month together.
+FirstPurchaseDate identifies when the customer made their first transaction. Cohort_Date rounds this to the first day of the month, grouping all customers who joined in the same month together.
 This allows us to track the behavior of each cohort over time.
 
 ```
@@ -33,6 +33,7 @@ SELECT
 FROM retail
 GROUP BY CustomerID;
 ```
+
 ###  Creating Cohort Index and Transaction View
 I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to.
 CohortIndex represents the number of months since the customer’s first purchase. Year and month columns help with time-based reporting.
