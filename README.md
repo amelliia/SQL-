@@ -78,9 +78,10 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
-<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
 I visualized this in Power BI as a heatmap, which made it easy to spot which cohorts were retaining customers better. This chart groups customers into monthly cohorts based on when they made their first purchase. Take January 2011 as an example: only about 24% of those users came back the following month. By the third month, retention had already fallen to 33%. The chart makes it clear that most users drop off quickly, with more than half leaving within the first month. After this steep decline, retention generally levels out, holding steady in the 20–30% range for many of the cohorts. One interesting exception is the December 2010 cohort. Unlike the others, this group held onto customers much longer, with nearly half of them still active by month eleven—the strongest performance of any cohort. It’s possible that holiday promotions or seasonal factors played a role in keeping those customers engaged.
+
+<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
 ### Cohort Revenue Growth
 
