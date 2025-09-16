@@ -82,7 +82,7 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 
 I visualized this in Power BI as a heatmap, which made it easy to spot which cohorts were retaining customers better.
 
-<img width="1585" height="665" alt="Image" src="https://github.com/user-attachments/assets/3dd241fe-74c7-4fbe-ac29-71bd7c6ddc69" />
+<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
 ### Cohort Revenue Growth
 
@@ -111,8 +111,5 @@ SELECT
 FROM CohortRevenue cr 
 ORDER BY cr.Cohort_Date, cr.CohortIndex;
 ```
-<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
-
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
-<img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/dd5d149a-19b7-4def-b109-523ace9b7a03" />
