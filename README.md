@@ -84,6 +84,7 @@ I used Power BI to create a heatmap that shows retention by monthly cohorts.
 #### Insights
 
 This analysis groups customers into cohorts based on the month of their first purchase. For example, the January 2011 cohort shows that only about 24% of users returned in the second month. By the third month, retention had dropped to 33%, highlighting a steep initial decline. Overall, most cohorts lose over half of their customers within the first month, after which retention stabilizes around 20–30%.
+
 One exception is the December 2010 cohort. Unlike the others, this group held onto customers much longer, with nearly half of them still active by month eleven—the highest retention observed across all cohorts. It’s possible that holiday promotions or seasonal factors played a role in keeping those customers engaged
 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
