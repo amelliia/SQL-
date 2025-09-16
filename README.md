@@ -111,6 +111,8 @@ SELECT
 FROM CohortRevenue cr 
 ORDER BY cr.Cohort_Date, cr.CohortIndex;
 ```
+<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
+<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
-<img width="1585" height="685" alt="Image" src="https://github.com/user-attachments/assets/f670a18e-c140-45e0-85bc-0605d2ef75b3" />
+<img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/dd5d149a-19b7-4def-b109-523ace9b7a03" />
