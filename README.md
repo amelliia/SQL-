@@ -99,6 +99,7 @@ FROM transactions t
 GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
+<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
 ```
 CREATE VIEW CohortRevenueGrowth AS
@@ -111,8 +112,6 @@ SELECT
 FROM CohortRevenue cr 
 ORDER BY cr.Cohort_Date, cr.CohortIndex;
 ```
-<img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
-
 
 <img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/af22d02e-f630-4e37-b3a7-0917bf7e83a2" />
 
