@@ -5,7 +5,7 @@ By grouping customers based on the month of their first purchase we can measure 
 
 The analysis was done using SQL for data preparation and Power BI for visualization.
 
-## **Data Cleaning**
+## Data Cleaning
 
 ### Setting Up a Stage Table
 I copied the raw online_retail table and made a staging table called retail_staging. This step preserved the raw data while giving me a safe working copy for cleaning the data. 
