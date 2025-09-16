@@ -83,9 +83,9 @@ I used Power BI to create a heatmap that shows retention by monthly cohorts.
 
 #### Retenetion Heatmap Insights:
 
-- Most cohorts see a sharp decline in the first month with more than half of customers not returning.
-- After that initial decline, retention stabilizes to around 20–30% in the following months.
-- The December 2010 cohort stands out as nearly half of these customers were still active by the eleventh month. This could be due to holiday promotions or seasonal shopping behavior.
+- Most cohorts see a sharp decline in the first month with more than half of customers not returning
+- After that initial decline, retention stabilizes to around 20–30% in the following months
+- The December 2010 cohort stands out as nearly half of these customers were still active by the eleventh month. This could be due to holiday promotions or seasonal shopping behavior
 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
