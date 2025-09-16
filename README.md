@@ -16,7 +16,7 @@ I checked Quantity and UnitPrice for negative numbers. The Quantity column conta
 ### Removing Duplicates
 To deal with duplicate records, I used the ROW_NUMBER() function. I grouped the data by invoice number, stock code, description, quantity, price, customer ID, and country. Each row in a group was then given a sequence number based on the invoice date. I kept only the first entry from each group and removed the rest, which ensured that only unique transactions remained. 
 ### Final Dataset 
-Once I completed all the cleaning steps, I created a new table called retail. This table includes only rows where CustomerID is not NULL, all quantities and prices are positive, and all duplicate records have been removed. The dataset is now clean and ready for analysis. how to make it ingitbub that
+Once I completed all the cleaning steps, I created a new table called retail. This table includes only rows where CustomerID is not NULL, all quantities and prices are positive, and all duplicate records have been removed. The dataset is now clean and ready for analysis.
 
 ## Cohort Analysis
 
@@ -60,9 +60,7 @@ JOIN cohort c
 
 ### Retention view to calculate monthly retention for each cohort
 
-This view counts how many customers were active in each cohort and month, then divides by the original cohort size.
-The result is a table showing how retention changes month by month for each cohort.
-
+To calculate monthly retention, I counted how many unique customers were active in each CohortIndex and divided that by the total cohort size.
 ```
 CREATE VIEW retention AS
 SELECT
@@ -80,9 +78,9 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
-I visualized this in Power BI as a heatmap, which made it easy to spot which cohorts were retaining customers better.
-
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
+
+I visualized this in Power BI as a heatmap, which made it easy to spot which cohorts were retaining customers better. This chart groups customers into monthly cohorts based on when they made their first purchase. Take January 2011 as an example: only about 24% of those users came back the following month. By the third month, retention had already fallen to 33%. The chart makes it clear that most users drop off quickly, with more than half leaving within the first month. After this steep decline, retention generally levels out, holding steady in the 20–30% range for many of the cohorts. One interesting exception is the December 2010 cohort. Unlike the others, this group held onto customers much longer, with nearly half of them still active by month eleven—the strongest performance of any cohort. It’s possible that holiday promotions or seasonal factors played a role in keeping those customers engaged.
 
 ### Cohort Revenue Growth
 
