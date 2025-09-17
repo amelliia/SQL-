@@ -80,6 +80,7 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 I used Power BI to create a heatmap that shows retention by monthly cohorts. 
 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
+
 #### Retenetion Heatmap Insights:
 
 - Most cohorts see a sharp decline in the first month with more than half of customers not returning
@@ -104,6 +105,7 @@ GROUP BY t.Cohort_Date, t.CohortIndex
 ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
+
 #### Average Revenue per Customer Heatmap Insights:
 - In several cohorts (e.g., Jan 2011, Aug 2011), average revenue per customer actually increased in later months compared to month 0. This indicates that retained customers tend to spend more over time, offsetting the overall decline in active users.
 - Cohorts that joined around holiday months like December or August tend to deliver much higher revenue per customer, suggesting that acquisition during seasonal peaks brings in more valuable customers.
@@ -127,6 +129,7 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 
 
 <img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/af22d02e-f630-4e37-b3a7-0917bf7e83a2" />
+
 #### Cohort Monthly and Culumative Revenue Insights:
 - Despite the sharp drop from month 1, revenue per month stabilizes around $0.5M–$0.6M, indicating that loyal customers continue to generate a steady revenue stream.
 - Most Revenue ((about 25% of total revenue)came in over came in the first month, showing the importance of the acquisition month.
