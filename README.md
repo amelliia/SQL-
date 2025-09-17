@@ -92,7 +92,7 @@ I used Power BI to create a heatmap that shows retention by monthly cohorts.
 
 ### Cohort Revenue Analysis
 
-To understand not just retention but spending behavior, I calculated revenue trends by cohort.
+To understand not just retention but spending behavior, I calculated revenue trends by cohort and and created a Power BI visualization showing the average revenue per customer.
 
 ```
 CREATE VIEW CohortRevenue AS
