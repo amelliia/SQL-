@@ -106,7 +106,10 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 ```
 
 #### Average Revenue per Customer Heatmap Insights:
-
+- In several cohorts (e.g., Jan 2011, Aug 2011), average revenue per customer actually increased in later months compared to month 0. This indicates that retained customers tend to spend more over time, offsetting the overall decline in active users.
+- Cohorts that joined around holiday months like December or August tend to deliver much higher revenue per customer, suggesting that acquisition during seasonal peaks brings in more valuable customers.
+- Even when retention declines sharply, average revenue per customer often holds steady or climbs (e.g., Jan 2011, Feb 2011). This highlights that losing low-value customers can make the remaining base look stronger in revenue terms.
+- 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
 ```
@@ -122,6 +125,15 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 ```
 
 #### Cohort Monthly and Culumative Revenue Insights:
+- Despite the sharp drop from month 1, revenue per month stabilizes around $0.5M–$0.6M, indicating that loyal customers continue to generate a steady revenue stream.
+- Most Revenue ((about 25% of total revenue)came in over came in the first month, showing the importance of the acquisition month.
 
 <img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/af22d02e-f630-4e37-b3a7-0917bf7e83a2" />
 
+### Conclusion
+
+This cohort analysis revealed clear patterns in customer retention, spending behavior, and long-term revenue growth. The retention analysis showed that most customers churn quickly, with more than half not returning after their first purchase. However, after this initial drop, retention stabilizes at around 20–30%, highlighting the presence of a loyal customer base that continues to engage with the business.
+
+The revenue analysis added a critical layer of insight. While overall retention declines, the average revenue per customer increases for many cohorts over time. This means that the customers who remain are not only more loyal but also more valuable. Seasonal cohorts such as December 2010 and August 2011 stood out, demonstrating both stronger retention and higher average spending, suggesting that acquisition timing during peak shopping periods significantly influences customer value.
+
+In summary, the business’s growth is less about preventing churn entirely and more about attracting and retaining the right cohorts of customers. Targeted acquisition during seasonal peaks and strategies to nurture high-value loyal customers can maximize long-term profitability and sustain revenue growth.
