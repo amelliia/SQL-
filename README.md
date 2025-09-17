@@ -137,7 +137,7 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 - Most Revenue (about 25% of total revenue) came in the first month, showing the importance of the acquisition month
 
 
-### Conclusion
+## Conclusion
 
 This cohort analysis revealed patterns in customer retention, spending behavior, and long-term revenue growth. The retention analysis showed that most customers churn quickly, with more than half not returning after their first purchase. However, after this initial drop, retention stabilizes at around 20–30%, highlighting the presence of a loyal customer base that continues to engage with the business.
 
