@@ -109,9 +109,9 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
 #### Average Revenue per Customer Heatmap Insights:
-- In several cohorts (e.g., Jan 2011, Aug 2011), average revenue per customer actually increased in later months compared to month 0. This indicates that retained customers tend to spend more over time, offsetting the overall decline in active users.
-- Cohorts that joined around holiday months like December or August tend to deliver much higher revenue per customer, suggesting that acquisition during seasonal peaks brings in more valuable customers.
-- Even when retention declines sharply, average revenue per customer often holds steady or climbs (e.g., Jan 2011, Feb 2011). This highlights that losing low-value customers can make the remaining base look stronger in revenue terms.
+- In several cohorts (e.g., Jan 2011, Aug 2011), average revenue per customer actually increased in later months compared to month 0. This indicates that retained customers tend to spend more over time, offsetting the overall decline in active users
+- Cohorts that joined around holiday months like December or August tend to deliver much higher revenue per customer, suggesting that acquisition during seasonal peaks brings in more valuable customers
+- Even when retention declines sharply, average revenue per customer often holds steady or climbs (e.g., Jan 2011, Feb 2011). This highlights that losing low-value customers can make the remaining base look stronger in revenue terms
 
 
 ### Cumulative Revenue
@@ -133,8 +133,8 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 <img width="1495" height="770" alt="Image" src="https://github.com/user-attachments/assets/af22d02e-f630-4e37-b3a7-0917bf7e83a2" />
 
 #### Cohort Monthly and Culumative Revenue Insights:
-- Despite the sharp drop from month 1, revenue per month stabilizes around $0.5M–$0.6M, indicating that loyal customers continue to generate a steady revenue stream.
-- Most Revenue ((about 25% of total revenue)came in over came in the first month, showing the importance of the acquisition month.
+- Despite the sharp drop from month 1, revenue per month stabilizes around $0.5M–$0.6M, indicating that loyal customers continue to generate a steady revenue stream
+- Most Revenue (about 25% of total revenue) came in the first month, showing the importance of the acquisition month
 
 
 ### Conclusion
