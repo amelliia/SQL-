@@ -1,7 +1,6 @@
 # Retail Data Cleaning and Cohort Analysis
 
-The main goal of this cohort analysis is to track customer retention and churn patterns over time.
-By grouping customers based on the month of their first purchase we can measure how long customers remain active after joining, how quickly customers drop off and to see if newer cohorts behave differently from older ones.
+The goal of this project was to perform a cohort analysis to understand customer retention and churn patterns over time. By grouping customers based on the month of their first purchase, we can observe how long customers stay active, identify drop-off points, and examine whether newer cohorts behave differently from older ones. SQL was used for data preparation, and Power BI for visualization.
 
 The analysis was done using SQL for data preparation and Power BI for visualization.
 
@@ -21,8 +20,8 @@ Once I completed all the cleaning steps, I created a new table called retail. Th
 ## Cohort Analysis
 
 ### Creating Cohort View 
-I identified each customer’s first purchase date and rounded it to the first day of that month. This created a Cohort Date, grouping customers who first purchased in the same month.
-This allows us to track the behavior of each cohort over time.
+
+I identified each customer’s first purchase date and rounded it to the first day of that month to define a Cohort_Date. Grouping customers this way allows tracking each cohort’s behavior over time.
 
 ```
 CREATE VIEW cohort AS
@@ -36,7 +35,7 @@ GROUP BY CustomerID;
 
 ###  Creating Cohort Index and Transaction View
 I created a transactions view to combine all purchase records with the cohort information. Each transaction now knows which cohort the customer belongs to. 
-CohortIndex represents the number of months since the customer’s first purchase. Year and month columns help with time-based reporting.
+CohortIndex represents the number of months since the customer’s first purchase. Year and month columns support time-based reporting.
 
 ```
 CREATE VIEW transactions AS
@@ -60,7 +59,7 @@ JOIN cohort c
 
 ### Retention view to calculate monthly retention for each cohort
 
-To calculate monthly retention, I counted how many unique customers were active in each CohortIndex and divided that by the total cohort size.
+To calculate monthly retention, I counted how many unique customers were active in each Cohort Index and divided that by the total cohort size.
 ```
 CREATE VIEW retention AS
 SELECT
@@ -89,9 +88,10 @@ I used Power BI to create a heatmap that shows retention by monthly cohorts.
 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/a142dfad-1fa1-4d46-bd9f-4cdc8d160f16" />
 
-### Cohort Revenue Growth
+### Cohort Revenue Analysis
 
-Finally, I looked at revenue trends by cohort. This shows not only retention but also whether customers are spending more over time.
+To understand not just retention but spending behavior, I calculated revenue trends by cohort.
+
 ```
 CREATE VIEW CohortRevenue AS
 SELECT
@@ -111,6 +111,9 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 - Even when retention declines sharply, average revenue per customer often holds steady or climbs (e.g., Jan 2011, Feb 2011). This highlights that losing low-value customers can make the remaining base look stronger in revenue terms.
 - 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
+
+## Cumulative Revenue
+To examine long-term value, I calculated cumulative revenue for each cohort.
 
 ```
 CREATE VIEW CohortRevenueGrowth AS
@@ -134,6 +137,4 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 
 This cohort analysis revealed clear patterns in customer retention, spending behavior, and long-term revenue growth. The retention analysis showed that most customers churn quickly, with more than half not returning after their first purchase. However, after this initial drop, retention stabilizes at around 20–30%, highlighting the presence of a loyal customer base that continues to engage with the business.
 
-The revenue analysis added a critical layer of insight. While overall retention declines, the average revenue per customer increases for many cohorts over time. This means that the customers who remain are not only more loyal but also more valuable. Seasonal cohorts such as December 2010 and August 2011 stood out, demonstrating both stronger retention and higher average spending, suggesting that acquisition timing during peak shopping periods significantly influences customer value.
-
-In summary, the business’s growth is less about preventing churn entirely and more about attracting and retaining the right cohorts of customers. Targeted acquisition during seasonal peaks and strategies to nurture high-value loyal customers can maximize long-term profitability and sustain revenue growth.
+ While overall retention declines, the average revenue per customer increases for many cohorts over time. This means that the customers who remain are not only more loyal but also more valuable. Seasonal cohorts such as December 2010 and August 2011 stood out, demonstrating both stronger retention and higher average spending, suggesting that acquisition timing during peak shopping periods significantly influences customer value. Targeted acquisition during seasonal peaks and strategies to nurture high-value loyal customers can maximize long-term profitability and sustain revenue growth.
