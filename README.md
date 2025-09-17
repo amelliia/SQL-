@@ -112,7 +112,7 @@ ORDER BY t.Cohort_Date, t.CohortIndex;
 - 
 <img width="1495" height="630" alt="Image" src="https://github.com/user-attachments/assets/16914283-0457-47ec-bfd2-82606a803095" />
 
-## Cumulative Revenue
+### Cumulative Revenue
 To examine long-term value, I calculated cumulative revenue for each cohort.
 
 ```
