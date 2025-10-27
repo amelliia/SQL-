@@ -1,6 +1,6 @@
 # Retail Data Cleaning and Cohort Analysis
 
-The goal of this project was to perform a cohort analysis to understand customer retention and churn patterns over time. By grouping customers based on the month of their first purchase, we can observe how long customers stay active, identify drop-off points and examine whether newer cohorts behave differently from older ones. SQL was used for data preparation, and Power BI for visualization.
+The goal of this project was to perform a cohort analysis to understand customer retention and churn patterns over time. By grouping customers based on the month of their first purchase, we can observe how long customers stay active, identify drop-off points and examine whether newer cohorts behave differently from older ones. SQL was used for data preparation and Power BI for visualization.
 
 The analysis was done using SQL for data preparation and Power BI for visualization.
 
