@@ -17,7 +17,7 @@ I checked Quantity and UnitPrice for negative numbers. The Quantity column conta
 ### Removing Duplicates
 To deal with duplicate records, I used the ROW_NUMBER() function. I grouped the data by invoice number, stock code, description, quantity, price, customer ID, and country. Each row in a group was then given a sequence number based on the invoice date. I kept only the first entry from each group and removed the rest, which ensured that only unique transactions remained. 
 ### Final Dataset 
-Once I completed all the cleaning steps, I created a new table called retail. This table includes only rows where CustomerID is not NULL, all quantities and prices are positive, and all duplicate records have been removed. The dataset is now clean and ready for analysis.
+Once I completed all the cleaning steps, I created a new table called retail. This table includes only rows where CustomerID is not NULL, all quantities and prices are positive and all duplicate records have been removed. The dataset is now clean and ready for analysis.
 
 ## Cohort Analysis
 
@@ -139,6 +139,6 @@ ORDER BY cr.Cohort_Date, cr.CohortIndex;
 
 ## Conclusion
 
-This cohort analysis revealed patterns in customer retention, spending behavior, and long-term revenue growth. The retention analysis showed that most customers churn quickly, with more than half not returning after their first purchase. However, after this initial drop, retention stabilizes at around 20–30%, highlighting the presence of a loyal customer base that continues to engage with the business.
+This cohort analysis revealed patterns in customer retention, spending behavior and long-term revenue growth. The retention analysis showed that most customers churn quickly, with more than half not returning after their first purchase. However, after this initial drop, retention stabilizes at around 20–30%, highlighting the presence of a loyal customer base that continues to engage with the business.
 
 While overall retention declines, the average revenue per customer increases for many cohorts over time. This means that the customers who remain are not only more loyal but also more valuable. Targeted acquisition during seasonal peaks and strategies to nurture high-value loyal customers can maximize long-term profitability and sustain revenue growth.
